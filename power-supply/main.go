@@ -19,7 +19,7 @@ const (
 	ADAPTER_WIDTH       = 58.0
 	ADAPTER_HEIGHT      = 15.0
 	ADAPTER_THICKNESS   = 5.0
-	TOLERANCE           = 1.2
+	TOLERANCE           = 1.0
 	BUFFER              = 10.0
 	ROUND               = 6.0
 	PROFILE_DISTANCE    = 10.0
@@ -51,12 +51,12 @@ func back() sdf.SDF3 {
 
 func holder() sdf.SDF3 {
 	top := sdf.Extrude3D(front2D(), ADAPTER_THICKNESS)
-	middle := sdf.Extrude3D(holder2D(), ADAPTER_THICKNESS)
+	middle := sdf.Extrude3D(holder2D(), ADAPTER_THICKNESS+TOLERANCE)
 	back := back()
 	return sdf.Union3D(
 		middle,
-		sdf.Transform3D(top, sdf.Translate3d(v3.Vec{X: 0, Y: 0, Z: ADAPTER_THICKNESS})),
-		sdf.Transform3D(back, sdf.Translate3d(v3.Vec{X: 0, Y: 0, Z: -ADAPTER_THICKNESS * 1.5})),
+		sdf.Transform3D(top, sdf.Translate3d(v3.Vec{X: 0, Y: 0, Z: ADAPTER_THICKNESS + TOLERANCE/2})),
+		sdf.Transform3D(back, sdf.Translate3d(v3.Vec{X: 0, Y: 0, Z: -ADAPTER_THICKNESS*1.5 - TOLERANCE/2})),
 	)
 }
 
