@@ -7,8 +7,8 @@ import (
 )
 
 const (
-	BODY_X          = 43.5
-	BODY_Y          = 38.1
+	BODY_X          = 43.3
+	BODY_Y          = 38.2
 	BODY_Z          = 13.2
 	ROUND           = 0.5
 	SCREW_SPACING_X = 14.7
@@ -28,7 +28,7 @@ func body() sdf.SDF3 {
 
 // 2D
 func bodyTop2D() sdf.SDF2 {
-	body := sdf.Box2D(v2.Vec{X: BODY_X, Y: BODY_Y}, 0.5)
+	body := sdf.Box2D(v2.Vec{X: BODY_X, Y: BODY_Y}, 1.5)
 	// spacing 14.7 X 27.8 Y
 	screwHole, _ := sdf.Circle2D(3.75 / 2)
 	screwHoles := sdf.Union2D(
@@ -41,8 +41,8 @@ func bodyTop2D() sdf.SDF2 {
 	moveBy := 25.0
 	screwHoles = sdf.Center2D(screwHoles)
 
-	screwHoles = sdf.Transform2D(screwHoles, sdf.Translate2d(v2.Vec{X: -BODY_X / 2, Y: 0}))
-	screwHoles = sdf.Transform2D(screwHoles, sdf.Translate2d(v2.Vec{X: moveBy / 2, Y: 0}))
+	screwHoles = sdf.Transform2D(screwHoles, sdf.Translate2d(v2.Vec{X: -BODY_X/2 - SCREW_SPACING_X/2, Y: 0}))
+	screwHoles = sdf.Transform2D(screwHoles, sdf.Translate2d(v2.Vec{X: moveBy, Y: 0}))
 	return sdf.Difference2D(body, screwHoles)
 }
 
