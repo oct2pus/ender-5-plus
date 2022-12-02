@@ -59,9 +59,8 @@ func frame2D() sdf.SDF2 {
 }
 
 func mounts2D() sdf.SDF2 {
-	insertDiameter := 5.23
-	post := sdf.Box2D(v2.Vec{X: MOUNT_SIZE, Y: MOUNT_SIZE}, 0.5)
-	insert, err := sdf.Circle2D(insertDiameter / 2)
+	post := sdf.Box2D(v2.Vec{X: MOUNT_SIZE, Y: MOUNT_SIZE}, ROUND)
+	insert, err := sdf.Circle2D(INSERT_DIAMETER / 2)
 	if err != nil {
 		log.Fatal(err)
 	}
