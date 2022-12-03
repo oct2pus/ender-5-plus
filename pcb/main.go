@@ -13,8 +13,6 @@ const (
 	POST_Y          = BOARD_Y - POST_OFFSET
 	INSERT_HEIGHT   = 3.81
 	INSERT_DIAMETER = 5.23
-	MOUNT_SIZE      = 8.0
-	FRAME_WIDTH     = 5.0
 	ROUND           = 0.5
 )
 

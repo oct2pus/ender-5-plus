@@ -9,7 +9,8 @@ import (
 )
 
 const (
-// move consts only related to stuff used in frame.go here
+	FRAME_WIDTH = 5.0
+	MOUNT_SIZE  = 8.0
 )
 
 // 3D
