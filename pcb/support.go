@@ -13,7 +13,7 @@ const (
 	BASE_Y             = 60.0
 	BASE_POST_OFFSET_Y = BASE_Y - POST_OFFSET
 	PROFILE_DISTANCE   = 10.0
-	PILLAR_HEIGHT      = BOARD_Y - 10
+	PILLAR_HEIGHT      = BOARD_Y - 20
 	TRIANGLE_HEIGHT    = BASE_X - POST_OFFSET
 	TRIANGLE_LENGTH    = BASE_POST_OFFSET_Y - INSERT_DIAMETER/2 - POST_OFFSET
 )
@@ -42,7 +42,7 @@ func pillar() sdf.SDF3 {
 	}
 
 	mount = sdf.Transform3D(mount, sdf.RotateX(sdf.DtoR(90)))
-	mount = sdf.Transform3D(mount, sdf.Translate3d(v3.Vec{X: 0, Y: -TRIANGLE_HEIGHT/2 - longInsertLength/2 + longInsertLength, Z: -PILLAR_HEIGHT/2 - INSERT_HEIGHT + POST_Y}))
+	mount = sdf.Transform3D(mount, sdf.Translate3d(v3.Vec{X: 0, Y: -TRIANGLE_HEIGHT/2 - longInsertLength/2 + longInsertLength, Z: -PILLAR_HEIGHT/2 - INSERT_HEIGHT + POST_Y - PROFILE_DISTANCE}))
 
 	return sdf.Difference3D(pillar, mount)
 }
