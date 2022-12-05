@@ -1,2 +1,5 @@
-*.stl
+feet/*.stl
+pcb/*.stl
+power-supply/*.stl
 *.dxf
+*.svg
