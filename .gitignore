@@ -1,5 +1,7 @@
 feet/*.stl
 pcb/*.stl
 power-supply/*.stl
+on-off/*.stl
+power-input/*.stl
 *.dxf
 *.svg
