@@ -55,7 +55,7 @@ func onoff() sdf.SDF3 {
 // 2D
 
 func body() sdf.SDF2 {
-	holeDiameter := 20.0
+	holeDiameter := 22.0
 
 	body := sdf.Box2D(v2.Vec{X: BODY_X, Y: BODY_Y}, 0)
 	hole, err := sdf.Circle2D(holeDiameter / 2)
